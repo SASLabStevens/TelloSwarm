@@ -732,7 +732,7 @@ else:
    
     rosClock.sleep(1)
     for drone in allDrones:   
-        drone.Disconnect()
+        drone.disconnect()
 
     
     with open("X_{}.npy".format(tstNum), 'wb') as savedata:    

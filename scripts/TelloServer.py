@@ -70,7 +70,7 @@ class Telloserver:
         """
         self.server_socket.sendto('command'.encode('utf-8'), 0, self.address)
         
-    def Disconnect(self):
+    def disconnect(self):
         """
         closes the UDP channels used for sending commands to a Tello drone
         """
