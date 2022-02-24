@@ -94,7 +94,7 @@ python3 ~/catkin_ws/src/vicon_bridge/TelloSwarm/scripts/TEST_mocap.py
 cd ~/telloswarm_ws/src/TelloSwarm/scripts/
 python3 TEST_mocap.py
 ```
-The `TEST_mocap.py` is the test file of the python module 'mocap.py' providing the positions and rotations of the objects(drones) published as [tf transform](http://wiki.ros.org/tf/Tutorials). 
+The `TEST_mocap.py` is the test file of the python module `mocap.py` providing the positions and rotations of the objects(drones) published as [tf transform](http://wiki.ros.org/tf/Tutorials). 
 
 ### Configuration
 
@@ -119,7 +119,7 @@ Wi-Fi adapter 3 (e.g. 192.168.50.4) ------> Tello Drone 3 (192.168.10.1:8889)
               :                                         :     				         	         
 </pre>
 
-Each Wi-Fi adapter has a unique [Wi-Fi interfaserve as a starting point for many other applicationsce name](https://askubuntu.com/questions/405508/how-to-find-name-of-currently-active-network-interface) as its identifier which later will be used by the python module `TelloServer.py` to enable the Wi-Fi communication and send control commands. 
+Each Wi-Fi adapter has a unique [Wi-Fi interface](https://askubuntu.com/questions/405508/how-to-find-name-of-currently-active-network-interface) as its identifier which later will be used by the python module `TelloServer.py` to enable the Wi-Fi communication and send control commands. 
 
 The communication network is set up using NetworkManager GUI or TUI
 
