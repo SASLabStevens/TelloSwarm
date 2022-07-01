@@ -686,11 +686,11 @@ try:
         
         # ============= send control commands ============
         
-        allDrones[0].cmdAngleVelocityZ(cmd_roll_y1, cmd_pitch_x1, cmd_z1, 0)
-        allDrones[1].cmdAngleVelocityZ(cmd_roll_y2, cmd_pitch_x2, cmd_z2, 0)
-        allDrones[2].cmdAngleVelocityZ(cmd_roll_y3, cmd_pitch_x3, cmd_z3, 0)
-        allDrones[3].cmdAngleVelocityZ(cmd_roll_y4, cmd_pitch_x4, cmd_z4, 0)
-        allDrones[4].cmdAngleVelocityZ(cmd_roll_y5, cmd_pitch_x5, cmd_z5, 0)
+        allDrones[0].cmdAngleZ(cmd_roll_y1, cmd_pitch_x1, cmd_z1, 0)
+        allDrones[1].cmdAngleZ(cmd_roll_y2, cmd_pitch_x2, cmd_z2, 0)
+        allDrones[2].cmdAngleZ(cmd_roll_y3, cmd_pitch_x3, cmd_z3, 0)
+        allDrones[3].cmdAngleZ(cmd_roll_y4, cmd_pitch_x4, cmd_z4, 0)
+        allDrones[4].cmdAngleZ(cmd_roll_y5, cmd_pitch_x5, cmd_z5, 0)
 
          
         # ================================================ 
