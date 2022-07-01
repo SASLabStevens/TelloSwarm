@@ -73,7 +73,7 @@ A successfully installed workstation has the following structure in your compute
 
 4. In the `vicon.launch` file located in `cd ~/telloswarm_ws/src/vicon_bridge/launch`, you may need to set the "datastream_hostport" parameter to the IP/hostname of your vicon's host PC and the "stream_mode" paramter to either of "ServerPush", "ClientPull", or "ClientPullPreFetch" modes. For details, consult [Vicon DataStream SDK Developer's Guide](https://docs.vicon.com/display/DSSDK111/DataStream+SDK+Documentation).
 
-5. Run the `vicon.launch` file and `TEST_mocap.py` to check if the installed ROS and Python packages work:
+5. Run the `vicon.launch` file and `test_mocap.py` to check if the installed ROS and Python packages work:
 
 - In the already-opened terminal run
 
@@ -83,7 +83,7 @@ roslaunch vicon_bridge vicon.launch
 
 which will start streaming motion captue data using ROS. 
 
-- In a new terminal, run `TEST_mocap.py` to access the ground truth pose of a drone defined in the VICON Tracker. Inside this python file, you need to set the "OBJECT_Name" parameter to the name of a drone created in the VICON Tracker.
+- In a new terminal, run `test_mocap.py` to access the ground truth pose of a drone defined in the VICON Tracker. Inside this python file, you need to set the "OBJECT_Name" parameter to the name of a drone created in the VICON Tracker.
 ```
 python3 ~/catkin_ws/src/vicon_bridge/TelloSwarm/scripts/test_mocap.py 
 ```      
