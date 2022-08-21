@@ -11,12 +11,15 @@ This repository contains the code for the following publication:
 If you find this code useful in your research, please consider citing our paper:
 
 ```
-@article{bahrami2022detection,
-  title={Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles},
+@INPROCEEDINGS{9836208,
   author={Bahrami, Mohammad and Jafarnejadsani, Hamidreza},
-  journal={arXiv preprint arXiv:2202.09661},
-  year={2022}
-}
+  booktitle={2022 International Conference on Unmanned Aircraft Systems (ICUAS)}, 
+  title={Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1111-1120},
+  doi={10.1109/ICUAS54217.2022.9836208}}
 ```
 For details, check out the [PDF](https://arxiv.org/abs/2202.09661), the [video](https://youtu.be/lVT_muezKLU), and the following [instructions](#instructions).
 
