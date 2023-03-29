@@ -85,7 +85,7 @@ which will start streaming motion captue data using ROS.
 
 - In a new terminal, run `test_mocap.py` to access the ground truth pose of a drone defined in the VICON Tracker. Inside this python file, you need to set the "OBJECT_Name" parameter to the name of a drone created in the VICON Tracker.
 ```
-python3 ~/catkin_ws/src/vicon_bridge/TelloSwarm/scripts/test_mocap.py 
+python3 ~/telloswarm_ws/src/vicon_bridge/TelloSwarm/scripts/test_mocap.py 
 ```      
    or
 ```   
