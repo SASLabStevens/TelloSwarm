@@ -1,152 +1,65 @@
-# TelloSwarm
+# demo_TelloEDU
 
-This repository contains the code for the following publication:
 
-[1] M. Bahrami, and H. Jafarnejadsani, "Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles" ([PDF](https://arxiv.org/abs/2202.09661)).
+## Prepration 
 
-- It provides Python scripts to interact with multiple [Ryze Tello drones](https://www.ryzerobotics.com/tello) in swarming and formation control settings.
-- It provides Python scripts for observer-based intrusion detection in multi-UAV control settings.
-- It uses the ground truth pose of each drone obtained from a ([VICON](https://www.vicon.com/)) motion capture system through the [vicon_bridge](https://github.com/ethz-asl/vicon_bridge) ROS package.
+1. pick the three Tello EDUs that are marked by `E1`,`E2`,`E3`, and place them in a circular shape, as pictured, around the T-zone of the flight area. The drone's Front(x) Left(y) Up(z) should be aligned with the XYZ of global frame.
 
-If you find this code useful in your research, please consider citing our paper:
+<p align="center">
+<img src="media/TELL_edus.jpg" alt="Your image title" width="480"/>
+<img src="media/TELOs_formation.jpg" alt="Your image title" width="480"/>
+</p>
 
-```
-@INPROCEEDINGS{9836208,
-  author={Bahrami, Mohammad and Jafarnejadsani, Hamidreza},
-  booktitle={2022 International Conference on Unmanned Aircraft Systems (ICUAS)}, 
-  title={Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles}, 
-  year={2022},
-  volume={},
-  number={},
-  pages={1111-1120},
-  doi={10.1109/ICUAS54217.2022.9836208}}
-```
-For details, check out the [PDF](https://arxiv.org/abs/2202.09661), the [video](https://youtu.be/lVT_muezKLU), and the following [instructions](#instructions).
 
-[![stealthy-Intrusion-Detection](https://img.youtube.com/vi/lVT_muezKLU/0.jpg)](https://youtu.be/lVT_muezKLU)
+2. make sure the Tello EDUs, `E1`,`E2`,`E3`, are defined in the VICON Tracker as objects named ``EDU_1``, ``EDU_2``, ``EDU_3``, respectively. Also make sure the ``AUTO ENABLE`` and ``TRACK`` are activated.
 
-# Instructions
+<p align="center">
+<img src="media/TELLO_vicon.jpg" alt="Your image title" width="480"/>
+</p>
 
-The code has been tested on Ubuntu 20.04 and ROS Noetic with Python 3.6+.
+- If not calibrated already, a calibration file can be loaded to use in VICON Tracker. (update of OCT. 7th.)
+<p align="center">
+<img src="media/IMG_3420.jpg" alt="Your image title" width="480"/>
+</p>
 
-### Prerequisites
+3. open a terminal and run 
 
-[ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) and catkin tools. The Desktop-Full Installation is recommended.
-
-### Installation
-
-1. Create a catkin workspace named telloswarm_ws and move to its source (src) folder: 
-
-```
-mkdir -p ~/telloswarm_ws/src && cd ~/telloswarm_ws/src
-```
-
-2. Clone the vicon_bridge and TelloSwarm repositories: 
-
-```
-git clone https://github.com/r-bahrami/vicon_bridge && git clone https://github.com/SASLabStevens/TelloSwarm
-```
-
-3. Build and source the setup file:
-
-```
-cd ~/telloswarm_ws/ && catkin_make
-```
-
-```
-source devel/setup.bash
-```
-
-A successfully installed workstation has the following structure in your computer:
-
-<pre>
-~/telloswarm_ws/                                -- telloswarm WORKSPACE
-├── src/                                        -- SOURCE SPACE
-|   |
-│   ├── TelloSwarm/                             -- flight control, monitoring, and comm. network code stack
-│   │   └── TelloSwarm_files
-│   ├── vicon_bridge/                           -- motion capture system's PKG, providing the ground truth
-|   |   ├── launch/vicon.launch
-|   |   ├── package.xml
-│   │   └── Other_vicon_bridge_files_&_folders
-│   └── CMakeLists.txt                          -- 'Toplevel' CMake file, provided by catkin
-├── devel/
-└── build/
-</pre>
-
-4. In the `vicon.launch` file located in `cd ~/telloswarm_ws/src/vicon_bridge/launch`, you may need to set the "datastream_hostport" parameter to the IP/hostname of your vicon's host PC and the "stream_mode" parameter to either of "ServerPush", "ClientPull", or "ClientPullPreFetch" modes. For details, consult [Vicon DataStream SDK Developer's Guide](https://docs.vicon.com/display/DSSDK111/DataStream+SDK+Documentation).
-
-5. Run the `vicon.launch` file and `test_mocap.py` to check if the installed ROS and Python packages work:
-
-- In the already-opened terminal run
-
-```
-roslaunch vicon_bridge vicon.launch
-```
-
-which will start streaming motion capture data using ROS. 
-
-- In a new terminal, run `test_mocap.py` to access the ground truth pose of a drone defined in the VICON Tracker. Inside this Python file, you need to set the "OBJECT_Name" parameter to the name of a drone created in the VICON Tracker.
-```
-python3 ~/telloswarm_ws/src/TelloSwarm/scripts/test_mocap.py 
-```      
-   or
-```   
-cd ~/telloswarm_ws/src/TelloSwarm/scripts/
-python3 test_mocap.py
-```
-The `test_mocap.py` is the test file of the Python module `mocap.py` providing the positions and rotations of the objects(drones) using [tf transform](http://wiki.ros.org/tf/Tutorials). 
-
-### Configuration
-
-This is a one-time setup with two parts: 1) creating/naming objects associated with (Tello) drones in the VICON Tracker, and 2) configuring Wi-Fi connections with (Tello) drones. After the first time, the names and addresses assigned in this section will be used when running flight tests or developing control and monitoring algorithms.
-
-#### Name Drones (in [VICON Tracker](https://www.vicon.com/software/tracker/)).
-We will use **a list of names**, assigned to the drones in the VICON Tracker software, as the **identifiers** of drones in Python programming. Particularly, the Python module `mocap.py` uses this list in obtaining the ground truth pose of the drones tracked by the motion capture system.
-
-#### Wi-Fi Network
-We use the following communication network architecture:
-<pre> 
-    PC (in STA mode) 	                           Drones (in AP mode) 
-     
-  =======================                    ============================== 
+ ```
+  source telloswarm_ws/devel/setup.bash
+ ```
  
-Wi-Fi adapter 1 (e.g. 192.168.50.2) ------> Tello Drone 1 (192.168.10.1:8889)
-  
-Wi-Fi adapter 2 (e.g. 192.168.50.3) ------> Tello Drone 2 (192.168.10.1:8889)
-  
-Wi-Fi adapter 3 (e.g. 192.168.50.4) ------> Tello Drone 3 (192.168.10.1:8889)
-              :                                         :   
-              :                                         :     				         	         
-</pre>
+then run
+ 
+ ```
+ roslaunch vicon_bridge vicon.launch
+ ```
+ 
+ which gives VICON data 
+ 
+<p align="center">
+<img src="media/tello_vicon_ros.jpg" alt="Your image title" width="480"/>
+</p>
+ 
+ 
+ ### run tests
+ 
+ 0. assumming ``roslaunch vicon_bridge vicon.launch`` in step 3 of prepration is running.
+ 
+ 1. open a new terminal and run
+ 
+ ```
+ python3 telloswarm_ws/src/TelloSwarm/scripts/demo_circle_EDU.py
+ ```
+ 
+ the drones take off and start flying in a circle for ~33 sec and then land.
 
-Each Wi-Fi adapter has a unique [Wi-Fi interface](https://askubuntu.com/questions/405508/how-to-find-name-of-currently-active-network-interface) as its identifier which later will be used by the python module `TelloServer.py` to enable the Wi-Fi communication and send control commands. 
 
-The communication network is set up using NetworkManager GUI or TUI
+### a few notes
 
-1. Connect to a Tello drone using a Wi-Fi adapter.
-2. Run `ifconfig` in a terminal and find the name of the [active Wi-Fi interface](https://askubuntu.com/questions/405508/how-to-find-name-of-currently-active-network-interface) to which the drone is connected.
-3. Configure Wi-Fi connections by [assigning](https://help.ubuntu.com/stable/ubuntu-help/net-manual.html.en) a unique IP address from the range `192.168.10.2-255` with Netmask `255.255.255.0` to the drone's connection. Reconnect the drone and check if the connection is now established using the assigned IP to the Wi-Fi adapter.\
-Follow steps 1-3 for each drone, separately, and reconnect them at the end. Also, the terminal commands `ifconfig` with details in [(here)
-](https://manpages.ubuntu.com/manpages/focal/man8/ifconfig.8.html) and `route` with details in [(here)](https://manpages.ubuntu.com/manpages/focal/man8/route.8.html) might be useful. If you have configured the IP addresses as described and all Tello drones are connected, running `route` or `ifconfig` in a termnial will show a list of currently-active connections with their IP addresses and Wi-Fi interface names. 
-4. The module `TelloServer.py` takes the Wi-Fi interface names, as identifiers, to establish connections.
+ - to repeat the experiment, restart the EDU drones by shuting them off and on and run the previous python command again.
 
+ - before each experiment make sure the propellers or the markers are not loose!
 
-### Running flight test experiments
-Here we show how to use TelloSwarm in multi-UAV cooperative control settings as well as to reproduce the results in [[1]](https://arxiv.org/abs/2202.09661). 
+ - the HP workstation has been connected via Ethernet cable to the router, make sure they are not disconnected.
 
-At this point, we assume the VICON Tracker is running in streaming mode with the drone's objects created and Wi-Fi connections established.
-
-1. In a terminal run the vicon_bridge roslaunch file to enable motion capture data streaming through ROS
-```
-source ~/telloswarm_ws/devel/setup.bash
-roslaunch vicon_bridge vicon.launch
-```
-2. In a new terminal run the example/test file `test_TelloSwarm.py`. Inside the `test_TelloSwarm.py` file, you may need to change the "wifi_interfaces" and "droneslist" lists according to your own set-up.
-```
-cd ~/telloswarm_ws/src/TelloSwarm/scripts/
-python3 test_TelloSwarm.py
-```
-This test file serves as a starting point for any other applications by demonstrating how to use the modules `TelloServer.py` and `mocap.py` to simultaneously control multiple Tello drones in a simple flight test that is take off, go to the prespecified hovering setpoints during five seconds, and then land. 
-
-To reproduce the results in [[1]](https://arxiv.org/abs/2202.09661), in step 2 run the files with the names `formation_5drones_*.py` where * is `adv_free`, `ZDA`, or `covert`.
+ - the Tello EDUs marked by `E1`,`E2`,`E3`, are defined in the router with static IP addresses. If other drones are required to be used, further configuration is required.
