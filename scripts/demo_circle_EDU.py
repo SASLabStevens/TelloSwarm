@@ -3,7 +3,7 @@
 """
 Created on Tue Nov 16 15:47:30 2021
 
-@author: Mohamad Bahrami
+@author: Rayan Bahrami
 
 Safe Autonomous Systems Lab (SAS Lab)
 Stevens Institute of Technology
@@ -19,7 +19,7 @@ from scipy.io import loadmat, savemat
 
 import numpy as np
 
-import math, time 
+# import math, time 
 
 """
 WI-FI interfaces  |        network 
@@ -31,12 +31,12 @@ ______________________________________________________
 Tello WiFi name   | client's name and IP in the router
 ----------------   ----------------------------------
 
-Tello-CBF2C8      :    EDU_1     192.173.67.194
-Tello-CBF2C9      :    EDU_2     192.173.67.195
-Tello-CBF267      :    EDU_3     192.173.67.196
-Tello-CBF2CB      :    EDU_4     192.173.67.197 
-Tello-CBF1B9      :    EDU_5     192.173.67.198
-Tello-CBF2C1      :    EDU_6     192.173.67.199
+Tello-CBF2C8      :    EDU_1     172.16.0.11
+Tello-CBF2C9      :    EDU_2     172.16.0.12
+Tello-CBF267      :    EDU_3     172.16.0.13
+Tello-CBF2CB      :    EDU_4     172.16.0.xx 
+Tello-CBF1B9      :    EDU_5     172.16.0.xx
+Tello-CBF2C1      :    EDU_6     172.16.0.xx
 
 """
 
@@ -62,13 +62,13 @@ MAX_PID = 100 #  saturation on PID outputs
 
 Dterm_filter = 10
 
-K_px = 400
-K_dx = 400
-K_ix = 130
+K_px = 330  # 400
+K_dx = 330  # 400
+K_ix = 10  # 130
 
-K_py = 400
-K_dy = 400
-K_iy = 130
+K_py = 330  # 400
+K_dy = 330  # 400
+K_iy = 10  # 130
 
 K_pz = 330
 K_dz = 330
