@@ -1,5 +1,17 @@
 # TelloSwarm
 
+---
+### Updates 
+
+- **August 2024** | *TelloSwarm+*:
+
+  A multi-threaded API for formation control and video streaming from multiple Tello drones over a wireless network (WLAN).
+
+- **June 2022** | *TelloSwarm*:
+
+  An API for formation control of multiple standard Tello drones over a wireless network (WLAN). See the [ICUAS_2022](https://github.com/SASLabStevens/TelloSwarm/tree/ICUAS_2022) branch for the code used in [Bahrami and Jafarnejadsani, IEEE ICUAS 2022](https://ieeexplore.ieee.org/abstract/document/9836208).
+---
+
 This repository contains the code for the following publication:
 
 [1] M. Bahrami, and H. Jafarnejadsani, "Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles" ([PDF](https://arxiv.org/abs/2202.09661)).
