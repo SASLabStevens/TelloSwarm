@@ -44,7 +44,7 @@ mkdir -p ~/telloswarm_ws/src && cd ~/telloswarm_ws/src
 2. Clone the vicon_bridge and TelloSwarm repositories: 
 
 ```
-git clone https://github.com/r-bahrami/vicon_bridge && git clone https://github.com/SASLabStevens/TelloSwarm
+git clone https://github.com/r-bahrami/vicon_bridge && git clone https://github.com/SASLabStevens/TelloSwarm -b ICUAS_2022
 ```
 
 3. Build and source the setup file:
