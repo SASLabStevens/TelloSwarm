@@ -1,0 +1,46 @@
+exptNum: 'two-tello-sd'
+numAgents: 2
+Lap:
+  - [1, -1]
+  - [-1, 1]
+Adj:
+  - [0, 1]
+  - [1, 0]
+
+gamma: 1.09242 # 7.2828 
+alpha: 0.72828 # 1.63863
+g: 9.81
+
+sample_time: 0.02 
+max_itr: 1000
+
+
+Pstar: # in FLU  [meters] in the world frame
+  x: [-1.6, -2.5]
+  y: [0, 0]
+  z: [0.7, 0.7]
+
+camera:
+  W: 640 # width in pixels
+  H: 480 # Height in pixels
+  FoV: 90 # Field of View in degrees
+  cx: 312.89515447 # W/2=640/2
+  cy: 238.21955117 # H/2=480/2
+  fx: 616.6350942 # for FOV=90
+  fy: 616.51675477 # for FOV=90
+  sc: 0
+  ac: 1
+  fps: 30
+  res: '480p'
+
+
+# YOLOv7 params
+conf_thres: 0.15
+iou_thres: 0.45
+targets:
+  class_index: [80,81] # drone, jackal-UGV 
+  object_size: [[0.175, 0.041], [0.47,0.28]] # [width, height] in meters 
+
+# - Ref. https://github.com/ultralytics/yolov5/blob/master/data/coco.yaml
+# tello drone [0.175, 0.041] # [width, height] in meters | diameter = 20.5 cm
+# jackal-UGV 47 cm x 43 cm
