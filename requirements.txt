@@ -1,0 +1,11 @@
+# ==== base =====
+numpy>=1.18.5  # ,<=1.20 # the upperbound is needed for custom training yolo 
+# matplotlib>=3.2.2
+opencv-python>=4.1.2
+# Pillow
+# scipy>=1.4.1
+# ==== for mocap =====
+rospkg
+PyYAML>=5.3.1
+
+
