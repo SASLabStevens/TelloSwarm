@@ -1,0 +1,3 @@
+[submodule "object_detection/yolov7"]
+	path = object_detection/yolov7
+	url = https://github.com/WongKinYiu/yolov7
