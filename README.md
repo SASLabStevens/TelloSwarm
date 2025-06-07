@@ -26,6 +26,7 @@ If you find this code useful in your research, please consider citing our papers
   pages={370--377},
   year={2025},
   organization={IEEE}
+  doi={10.1109/ICUAS65942.2025.11007832}
 }
 ```
 
