@@ -7,6 +7,8 @@
 
   A multi-threaded API for formation control and video streaming from multiple [Tello EDU](https://www.ryzerobotics.com/tello-edu) drones over a wireless network (WLAN).
 
+  See the [ICUAS_2025](https://github.com/SASLabStevens/TelloSwarm/tree/ICUAS_2025) branch for the code used in [Bahrami and Jafarnejadsani, IEEE ICUAS 2025](https://ieeexplore.ieee.org/abstract/document/11007832).
+
 - **June 2022** | *TelloSwarm*:
 
   An API for formation control of multiple *standard* [Tello](https://www.ryzerobotics.com/tello) drones over a wireless network (WLAN).
@@ -14,11 +16,22 @@
   See the [ICUAS_2022](https://github.com/SASLabStevens/TelloSwarm/tree/ICUAS_2022) branch for the code used in [Bahrami and Jafarnejadsani, IEEE ICUAS 2022](https://ieeexplore.ieee.org/abstract/document/9836208).
 ---
 
-If you find this code useful in your research, please consider citing our paper:
+If you find this code useful in your research, please consider citing our papers:
+
+```
+@inproceedings{bahrami2025multi,
+  title={Multi-Robot Coordination with Adversarial Perception},
+  author={Bahrami, Rayan and Jafarnejadsani, Hamidreza},
+  booktitle={2025 International Conference on Unmanned Aircraft Systems (ICUAS)},
+  pages={370--377},
+  year={2025},
+  organization={IEEE}
+}
+```
 
 ```
 @INPROCEEDINGS{9836208,
-  author={Bahrami, Mohammad and Jafarnejadsani, Hamidreza},
+  author={Bahrami, Rayan and Jafarnejadsani, Hamidreza},
   booktitle={2022 International Conference on Unmanned Aircraft Systems (ICUAS)}, 
   title={Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles}, 
   year={2022},
@@ -29,8 +42,11 @@ If you find this code useful in your research, please consider citing our paper:
 ```
 For details, check out the [PDF](https://arxiv.org/abs/2202.09661), the [video](https://youtu.be/lVT_muezKLU), and the following [instructions](#instructions).
 
-[![stealthy-Intrusion-Detection](https://img.youtube.com/vi/lVT_muezKLU/0.jpg)](https://youtu.be/lVT_muezKLU)
-
+<p align="center">
+<a href="https://vimeo.com/1073774001">
+  <img src="media/thumbnail_ICUAS2025.jpeg" width="640" alt="MRC">
+</a>
+</p>
 
 # Instructions
 
