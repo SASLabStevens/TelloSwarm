@@ -1,19 +1,20 @@
-# TelloSwarm
+# TelloSwarm+
   
 ---
+
+The code used in [Bahrami and Jafarnejadsani, IEEE ICUAS 2025](https://ieeexplore.ieee.org/abstract/document/11007832).
 
 If you find this code useful in your research, please consider citing our paper:
 
 ```
-@INPROCEEDINGS{9836208,
-  author={Bahrami, Mohammad and Jafarnejadsani, Hamidreza},
-  booktitle={2022 International Conference on Unmanned Aircraft Systems (ICUAS)}, 
-  title={Detection of Stealthy Adversaries for Networked Unmanned Aerial Vehicles}, 
-  year={2022},
-  volume={},
-  number={},
-  pages={1111-1120},
-  doi={10.1109/ICUAS54217.2022.9836208}}
+@inproceedings{bahrami2025multi,
+  title={Multi-Robot Coordination with Adversarial Perception},
+  author={Bahrami, Rayan and Jafarnejadsani, Hamidreza},
+  booktitle={2025 International Conference on Unmanned Aircraft Systems (ICUAS)},
+  pages={370--377},
+  year={2025},
+  organization={IEEE}
+}
 ```
 
 # Instructions
@@ -30,7 +31,7 @@ mkdir -p ~/telloswarm_ws/src && cd ~/telloswarm_ws/src
 
 # Clone the vicon_bridge and TelloSwarm_plus repositories:
 git clone https://github.com/r-bahrami/vicon_bridge
-git clone --recurse-submodules -b 2024 https://github.com/SASLabStevens/TelloSwarm
+git clone --recurse-submodules -b ICUAS_2025 https://github.com/SASLabStevens/TelloSwarm
 
 # Build and source the setup file:
 cd ~/telloswarm_ws/ && catkin_make
